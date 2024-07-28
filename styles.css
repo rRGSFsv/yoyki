@@ -1,0 +1,213 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    background: url('blur.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.rain.front-row {
+    z-index: -1;
+}
+
+.rain.back-row {
+    z-index: -2;
+    bottom: 60px;
+    opacity: 0.5;
+}
+
+.drop {
+    position: absolute;
+    bottom: 100%;
+    width: 15px;
+    height: 120px;
+    pointer-events: none;
+    animation: drop 4.5s linear infinite; /* Увеличение длительности в 3 раза */
+    transform: rotate(30deg); /* наклон капли */
+}
+
+@keyframes drop {
+    0% {
+        transform: translateY(0vh) translateX(0vw) rotate(30deg);
+    }
+    100% {
+        transform: translateY(90vh) translateX(-10vw) rotate(30deg);
+    }
+}
+
+.stem {
+    width: 1px;
+    height: 60%;
+    margin-left: 7px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.25));
+    animation: stem 4.5s linear infinite;
+}
+
+@keyframes stem {
+    0% {
+        opacity: 1;
+    }
+    65% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.splat {
+    width: 15px;
+    height: 10px;
+    border-top: 2px dotted rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    opacity: 1;
+    transform: scale(0);
+    animation: splat 4.5s linear infinite;
+    display: none;
+}
+
+@keyframes splat {
+    0% {
+        opacity: 1;
+        transform: scale(0);
+    }
+    80% {
+        opacity: 1;
+        transform: scale(0);
+    }
+    90% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.5);
+    }
+}
+
+.main-content {
+    position: relative;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    width: 600px;
+    text-align: center;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+}
+
+.top-part {
+    background: url('blur2.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 65px; /* Увеличение отступа */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    color: white;
+}
+
+.quote {
+    text-align: left;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.bottom-part {
+    background: white;
+    padding: 40px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.avatar img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.info h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.info p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.buttons .btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 15px 30px;
+    border-radius: 20px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+}
+
+.social-links a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.social-links img {
+    width: 32px;
+    height: 32px;
+}
+
+.works-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.works {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    width: 1200px; /* Увеличение ширины в 2 раза */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Сетка для адаптивного отображения */
+    gap: 20px;
+    justify-content: center;
+}
+
+.work-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+}
